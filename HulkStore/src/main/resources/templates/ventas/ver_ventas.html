@@ -29,24 +29,21 @@
                             <thead>
                             <tr>
                                 <th>Nombre</th>
-                                <th>Codigo de barras</th>
-                                <th>Cantidad vendida</th>
+                                <th>Codigo de Barras</th>
+                                <th>Cantidad Vendida</th>
                                 <th>Precio</th>
-                                <th>factura_id</th>
-                                <th>producto_id</th>
                                 <th>Total</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr th:each="producto : ${ventas.productos}">
-                                <td th:text="${producto.nombre}"></td>
-                                <td th:text="${producto.codigo}"></td>
+                            <tr th:each="producto : ${venta.detalles}">
+                         		<td th:text="${producto.nombre}"></td>
+                         		<td th:text="${producto.codigo}"></td>
                                 <td th:text="${producto.cantidad}"></td>
                                 <td th:text="${producto.precio}"></td>
-                                <td th:text="${producto.factura_id}"></td>
-                                <td th:text="${producto.producto_id}"></td>
                                 <td th:text="${producto.total}"></td>
                             </tr>
+                   
                             </tbody>
                         </table>
                     </td>
