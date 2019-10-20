@@ -1,6 +1,3 @@
-# Proyecto_InventarioVentas
-Proyecto Ventas e Inventario Spring Boot Web, JPA y Gestor de Plantillas Thymeleaf .
-
 # Inventario y Ventas HulkStore con Spring-boot
  Un sistema de ventas usando Java, Spring MVC, Postgres y Bootstrap
 
