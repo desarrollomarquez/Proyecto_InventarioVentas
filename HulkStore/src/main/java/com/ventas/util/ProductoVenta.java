@@ -1,6 +1,6 @@
 package com.ventas.util;
 
-import com.ventas.entity.Producto;
+import com.ventas.model.Producto;
 
 public class ProductoVenta extends Producto {
 	

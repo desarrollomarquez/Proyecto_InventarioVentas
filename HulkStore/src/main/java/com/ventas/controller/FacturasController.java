@@ -3,29 +3,33 @@ package com.ventas.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.ventas.entity.Producto;
-import com.ventas.entity.Detalle;
-import com.ventas.entity.Factura;
-import com.ventas.repository.ProductosRepository;
-import com.ventas.repository.DetallesRepository;
-import com.ventas.repository.FacturasRepository;
+import com.ventas.dao.DetallesDAO;
+import com.ventas.dao.FacturasDAO;
+import com.ventas.dao.ProductosDAO;
+import com.ventas.model.Cliente;
+import com.ventas.model.Detalle;
+import com.ventas.model.Factura;
+import com.ventas.model.Producto;
 import com.ventas.util.ProductoVenta;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+
 import java.util.ArrayList;
 
 @Controller
 @RequestMapping(path = "/facturar")
 public class FacturasController {
     @Autowired
-    private ProductosRepository productosRepository;
+    private ProductosDAO productosRepository;
     @Autowired
-    private FacturasRepository ventasRepository;
+    private FacturasDAO ventasRepository;
     @Autowired
-    private DetallesRepository productosVendidosRepository;
+    private DetallesDAO productosVendidosRepository;
 
     @PostMapping(value = "/quitar/{indice}")
     public String quitarDelCarrito(@PathVariable int indice, HttpServletRequest request) {
@@ -125,4 +129,23 @@ public class FacturasController {
         this.guardarCarrito(carrito, request);
         return "redirect:/facturar/";
     }
+    
+    @PostMapping(value = "/agregar/cliente")
+    public String guardarCliente(@ModelAttribute @Valid Cliente cliente, BindingResult bindingResult, RedirectAttributes redirectAttrs) {
+        if (bindingResult.hasErrors()) {
+            return "clientes/agregar_cliente";
+        }
+       // if (clientesRepository.findFirstByNumeroId(cliente.getNumeroide()) != null) {
+       //     redirectAttrs
+       //             .addFlashAttribute("mensaje", "Ya existe un cliente con ese Numero de Identificacion")
+       //             .addFlashAttribute("clase", "warning");
+       //     return "redirect:/facturar/";
+       // }
+       // clientesRepository.save(cliente);
+        redirectAttrs
+                .addFlashAttribute("mensaje", "Cliente Agregado correctamente")
+                .addFlashAttribute("clase", "success");
+        return "redirect:/facturar/";
+    }
+    
 }

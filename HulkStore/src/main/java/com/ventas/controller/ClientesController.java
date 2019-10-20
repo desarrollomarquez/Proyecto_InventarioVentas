@@ -7,8 +7,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.ventas.entity.Cliente;
-import com.ventas.repository.ClientesRepository;
+import com.ventas.dao.ClientesDAO;
+import com.ventas.model.Cliente;
 
 import javax.validation.Valid;
 
@@ -16,7 +16,7 @@ import javax.validation.Valid;
 @RequestMapping(path = "/clientes")
 public class ClientesController {
     @Autowired
-    private ClientesRepository clientesRepository;
+    private ClientesDAO clientesRepository;
 
     @GetMapping(value = "/agregar")
     public String agregarCliente(Model model) {
@@ -86,4 +86,5 @@ public class ClientesController {
                 .addFlashAttribute("clase", "success");
         return "redirect:/clientes/agregar";
     }
+
 }

@@ -7,8 +7,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.ventas.entity.Producto;
-import com.ventas.repository.ProductosRepository;
+import com.ventas.dao.ProductosDAO;
+import com.ventas.model.Producto;
 
 import javax.validation.Valid;
 
@@ -16,7 +16,7 @@ import javax.validation.Valid;
 @RequestMapping(path = "/productos")
 public class ProductosController {
     @Autowired
-    private ProductosRepository productosRepository;
+    private ProductosDAO productosRepository;
 
     @GetMapping(value = "/agregar")
     public String agregarProducto(Model model) {

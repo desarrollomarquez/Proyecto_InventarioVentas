@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ventas.repository.FacturasRepository;
+import com.ventas.dao.FacturasDAO;
 
 @Controller
 @RequestMapping(path = "/ventas")
 public class VentasController {
     @Autowired
-    FacturasRepository ventasRepository;
+    FacturasDAO ventasRepository;
 
     @GetMapping(value = "/")
     public String mostrarVentas(Model model) {

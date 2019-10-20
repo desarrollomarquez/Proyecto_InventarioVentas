@@ -1,4 +1,4 @@
-package com.ventas.entity;
+package com.ventas.model;
 
 import java.util.Set;
 

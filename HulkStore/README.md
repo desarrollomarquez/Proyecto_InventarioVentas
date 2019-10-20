@@ -1,5 +1,5 @@
 # Inventario y Ventas HulkStore con Spring-boot
- Un sistema de ventas usando Java, Spring MVC, Postgres y Bootstrap
+ Un sistema de ventas usando Java, Spring MVC-DAO, Postgres y Bootstrap
 
 # Tutorial
 
