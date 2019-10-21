@@ -51,7 +51,6 @@ public class Factura {
         this.fechaYHora = fechaYHora;
     }
 
- 
 
 	public Set<Detalle> getDetalles() {
 		return detalles;
